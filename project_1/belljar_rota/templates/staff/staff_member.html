@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>
+        staff member
+    </h2>
+    <ul>
+        <li>name: {{ staff_member.name }}</li>
+        <li>id: {{ staff_member.id }}</li>
+        <form id="edit" action="/staff/{{staff_member.id}}/edit" method="get">
+            <input type="submit" value="edit">
+        </form>
+        <form id="delete" action="/staff/{{staff_member.id}}/delete" method="post">
+            <input type="submit" value="delete">
+        </form>
+    </ul>
+{% endblock %}

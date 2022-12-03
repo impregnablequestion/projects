@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>
+        current staff
+    </h1>
+    <ul>
+        {% for staff_member in staff %}
+            <li><a href="/staff/{{staff_member.id}}">{{staff_member.name}}</a></li>
+            <li>name: {{staff_member.name}}</li>
+        {% endfor %}
+    </ul>
+    <h2>
+        <a href="/staff/create">add new member of staff</a>
+    </h2>
+{% endblock %}

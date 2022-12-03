@@ -37,7 +37,7 @@ def select_all():
     return staff
 
 def delete(id):   
-    sql = "DELETE * FROM staff WHERE id = %s"
+    sql = "DELETE FROM staff WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
