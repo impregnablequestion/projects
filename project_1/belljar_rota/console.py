@@ -30,5 +30,6 @@ shifts_repo.save(thu_open)
 shifts_repo.save(wed_open)
 
 found = shifts_repo.shifts_by_staff_member(sophie.id)
+found.sort(key=lambda p: p.day)
 
 pdb.set_trace()
