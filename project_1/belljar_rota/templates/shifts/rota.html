@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <table>
+    <table id="rota-create">
         <tr>
             <th><a href="/shifts/Mon">Mon</a></th>
             <th><a href="/shifts/Tue">Tue</a></th>
@@ -14,45 +14,45 @@
             <td>{% for shift in mon_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             </td>
             <td>{% for shift in tue_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             </td>
             <td>{% for shift in wed_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             <td>{% for shift in thu_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             <td>{% for shift in fri_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             <td>{% for shift in sat_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
             <td>{% for shift in sun_shifts %}
                 <ul>
                     <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
-                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                    <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
                 </ul>
             {% endfor %}
         </tr>

@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>edit {{staff_member.name}}</h2>
-    <form id="edit_staff_member" action="/staff/edit/{{staff_member.id}}" method="post">
+    <form id="edit-staff-member" action="/staff/edit/{{staff_member.id}}" method="post">
         <input type="text" placeholder="name" name="name" id="name">
         <input type="submit" value="confirm">
     </form>
+    <form id="back-staff-member" action="/staff/{{staff_member.id}}" method="get">
+        <input type="submit" value="back">
+    </form>
+
 {% endblock %}

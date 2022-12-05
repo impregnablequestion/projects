@@ -8,7 +8,8 @@
             <li><a href="/staff/{{staff_member.id}}">{{staff_member.name}}</a></li>
         {% endfor %}
     </ul>
-    <h2>
-        <a href="/staff/create">add new member of staff</a>
-    </h2>
+    <form id="new_member" action="/staff/create" method="get">
+        <input type="submit" value="add new member">
+    </form>
+
 {% endblock %}

@@ -5,17 +5,21 @@
     </h2>
     <ul>
         <li>name: {{ staff_member.name }}</li>
-        <li>id: {{ staff_member.id }}</li>
-        <form id="edit" action="/staff/{{staff_member.id}}/edit" method="get">
-            <input type="submit" value="edit">
-        </form>
-        <form id="delete" action="/staff/{{staff_member.id}}/delete" method="post">
-            <input type="submit" value="delete">
-        </form>
-        <form id="shifts" action="/staff/{{staff_member.id}}/shifts" method="get">
-            <input type="submit" value="show shifts">
-        </form>
-        
-        
+        <li>
+            <div id="staff_edit_buttons_container">
+                <form id="edit" action="/staff/{{staff_member.id}}/edit" method="get">
+                    <input type="submit" value="edit">
+                </form>
+                <form id="delete" action="/staff/{{staff_member.id}}/delete" method="post">
+                    <input type="submit" value="delete">
+                </form>
+                <form id="shifts" action="/staff/{{staff_member.id}}/shifts" method="get">
+                    <input type="submit" value="show shifts">
+                </form> 
+                <form id="back-staff" action="/staff/" method="get">
+                    <input type="submit" value="back">
+                </form> 
+            </div> 
+        </li> 
     </ul>
 {% endblock %}

@@ -21,9 +21,15 @@ td {
 }
 
 .view_edit_link {
-    color: hotpink
+    color: hotpink;
+    text-align: center
 }
 
 table > td > ul > li {
-    border: 2px dotted
+    border: 2px dotted;
 }
+
+.edit {
+    font-size: smaller;
+}
+
