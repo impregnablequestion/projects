@@ -3,7 +3,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/links.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tables.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/forms.css')}}">
     <title>bell jar rota</title>
 </head>
 <body>
@@ -11,17 +14,18 @@
         <h1><a href="/">bell jar rota</a></h1>
         <nav>
             <ul>
-                <li><a href="/staff/">staff</a></li>
+                <li><a href="/staff/">view team</a></li>
                 <li><a href="/shifts/">view rota</a></li>
                 <li><a href="/shifts/create">create rota</a></li>
             </ul>
         </nav>
     </header>
-    <article>
+    
+    <main>
         {% block content %}
             
         {% endblock %}
-    </article>
+    </main>
     <footer>
         <nav>
             <ul>

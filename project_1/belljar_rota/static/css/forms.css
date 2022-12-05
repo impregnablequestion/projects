@@ -1,0 +1,15 @@
+#form-label {
+    font-style: italic;
+    text-align: left;
+}
+
+#create_shift {
+    background-color: rgb(27, 47, 47);
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: medium;
+    border: 1rem rgb(27, 47, 47);
+}

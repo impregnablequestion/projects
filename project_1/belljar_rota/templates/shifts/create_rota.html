@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
     <form id="create_shift" action="/shifts/create/post" method="post">
-        <input type="text" placeholder="type" name="type" id="type">
+        <h2 id="form-label">create new shifts:</h2>
+        <label for="type">type:</label>
+        <select name="type" id="type">
+            <option value="open">open</option>
+            <option value="cross">cross</option>
+            <option value="close">close</option>
+            <option value="office">office</option>
+            <option value="quiz">quiz</option>
+        </select>
         <input type="text" placeholder="times" name="times" id="times">
         <input type="text" placeholder="hours" name="hours" id="hours">
-        <label for="day">day</label>
+        <label for="day">day:</label>
         <select name="day" id="day">
             <option value="Mon">Monday</option>
             <option value="Tue">Tuesday</option>
@@ -14,7 +22,7 @@
             <option value="Sat">Saturday</option>
             <option value="Sun">Sunday</option>
         </select>
-        <label for="staff">staff member</label>
+        <label for="staff">staff member:</label>
         <select name="staff_id" id="staff">
             {% for staff_member in staff %}
                 <option value="{{staff_member.id}}">{{staff_member.name}}</option>
@@ -22,59 +30,62 @@
         </select>
         <input type="submit" value="create shift">
     </form>
+    </div>
     <table>
         <tr>
-            <th><a href="/shifts/Mon">Mon</a></th>
-            <th><a href="/shifts/Tue">Tue</a></th>
-            <th><a href="/shifts/Wed">Wed</a></th>
-            <th><a href="/shifts/Thu">Thu</a></th>
-            <th><a href="/shifts/Fri">Fri</a></th>
-            <th><a href="/shifts/Sat">Sat</a></th>
-            <th><a href="/shifts/Sun">Sun</a></th>   
+            <th><a href="/shifts/Mon">mon</a></th>
+            <th><a href="/shifts/Tue">tue</a></th>
+            <th><a href="/shifts/Wed">wed</a></th>
+            <th><a href="/shifts/Thu">thu</a></th>
+            <th><a href="/shifts/Fri">fri</a></th>
+            <th><a href="/shifts/Sat">sat</a></th>
+            <th><a href="/shifts/Sun">sun</a></th>   
         </tr>
         <tr>
             <td>{% for shift in mon_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
             </td>
             <td>{% for shift in tue_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
             </td>
             <td>{% for shift in wed_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
-            </td>
             <td>{% for shift in thu_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
-            </td>
             <td>{% for shift in fri_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
-            </td>
             <td>{% for shift in sat_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
-            </td>
             <td>{% for shift in sun_shifts %}
-                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-                <p>———————————————————————————</p>
+                <ul>
+                    <li><h3>{{shift.staff_member.name}}: {{shift.times}}</h3></li>
+                    <li><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                </ul>
             {% endfor %}
-            </td>
         </tr>
         <tr>
             <td>note</td>
