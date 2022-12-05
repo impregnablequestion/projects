@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ day }}</h2>
+    <ul>
+        <ul>
+            {% for shift in shifts %}
+                <li>———————————————————</li>
+                <li>type: {{shift.type}}</li>
+                <li>times: {{shift.times}}</li>
+                <li>hours: {{shift.hours}}</li>
+                <li>day: {{shift.day}}</li>
+            {% endfor %}
+        </ul>
+    </ul>
+{% endblock %}

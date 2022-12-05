@@ -12,7 +12,16 @@
         <input type="text" placeholder="type" name="type" id="type">
         <input type="text" placeholder="times" name="times" id="times">
         <input type="text" placeholder="hours" name="hours" id="hours">
-        <input type="text" placeholder="day" name="day" id="day">
+        <label for="day">day</label>
+        <select name="day" id="day">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+        </select>
         <label for="staff">staff member</label>
         <select name="staff_id" id="staff">
             {% for staff_member in staff %}
