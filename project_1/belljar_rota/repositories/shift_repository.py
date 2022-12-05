@@ -72,9 +72,11 @@ def shifts_by_day(day):
     sql = "SELECT * FROM shifts WHERE day = %s"
     values = [day]
     results = run_sql(sql, values)
-
-    for row in results:
-        staff_member = staff_repo.select(row['id'])
-        shift = Shift(row['type'], row['times'], row['hours'], row['day'], staff_member, row['id'])
-        shifts.append(shift)
-    return shifts
+    if results == None:
+        return None
+    else:
+        for row in results:
+            staff_member = staff_repo.select(row['staff_id'])
+            shift = Shift(row['type'], row['times'], row['hours'], row['day'], staff_member, row['id'])
+            shifts.append(shift)
+        return shifts

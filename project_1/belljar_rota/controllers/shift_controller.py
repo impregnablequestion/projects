@@ -6,9 +6,25 @@ from models.shift import Shift
 shift_blueprint = Blueprint("shifts", __name__)
 
 @shift_blueprint.route('/shifts/')
-def show_rota():
-    shifts = shift_repo.select_all()
-    return render_template("shifts/rota.html", shifts = shifts)
+def show_rota_table_test():
+    mon_shifts = shift_repo.shifts_by_day("Mon")
+    tue_shifts = shift_repo.shifts_by_day("Tue")
+    wed_shifts = shift_repo.shifts_by_day("Wed")
+    thu_shifts = shift_repo.shifts_by_day("Thu")
+    fri_shifts = shift_repo.shifts_by_day("Fri")
+    sat_shifts = shift_repo.shifts_by_day("Sat")
+    sun_shifts = shift_repo.shifts_by_day("Sun")
+
+    return render_template(
+        "shifts/rota.html",
+        mon_shifts=mon_shifts,
+        tue_shifts=tue_shifts,
+        wed_shifts=wed_shifts,
+        thu_shifts=thu_shifts,
+        fri_shifts=fri_shifts,
+        sat_shifts=sat_shifts,
+        sun_shifts=sun_shifts
+        )
 
 @shift_blueprint.route('/shifts/shift/<id>')
 def show_shift(id):
@@ -41,9 +57,23 @@ def delete_shift(id):
 
 @shift_blueprint.route("/shifts/create")
 def show_create_shift():
-    shifts = shift_repo.select_all()
+    mon_shifts = shift_repo.shifts_by_day("Mon")
+    tue_shifts = shift_repo.shifts_by_day("Tue")
+    wed_shifts = shift_repo.shifts_by_day("Wed")
+    thu_shifts = shift_repo.shifts_by_day("Thu")
+    fri_shifts = shift_repo.shifts_by_day("Fri")
+    sat_shifts = shift_repo.shifts_by_day("Sat")
+    sun_shifts = shift_repo.shifts_by_day("Sun")
     staff = staff_repo.select_all()
-    return render_template("shifts/create_rota.html", shifts = shifts, staff = staff)
+    return render_template("shifts/create_rota.html",
+    mon_shifts=mon_shifts,
+    tue_shifts=tue_shifts,
+    wed_shifts=wed_shifts,
+    thu_shifts=thu_shifts,
+    fri_shifts=fri_shifts,
+    sat_shifts=sat_shifts,
+    sun_shifts=sun_shifts,
+    staff = staff)
 
 @shift_blueprint.route("/shifts/create/post", methods = ["POST"])
 def create_shift():
@@ -58,3 +88,7 @@ def create_shift():
     shift_repo.save(shift)
     return redirect("/shifts/create")
 
+@shift_blueprint.route("/shifts/<day>")
+def shifts_by_day(day):
+    shifts = shift_repo.shifts_by_day(day)
+    return render_template("shifts/shifts_by_day.html", shifts = shifts, day=day)

@@ -1,11 +1,67 @@
 {% extends 'base.html' %}
 {% block content %}
-    <ul>
-        <li>
-            {% for shift in shifts %}
-                <h3>{{shift.day}} {{shift.type}}, {{shift.times}}: {{shift.staff_member.name}}</h3>
+    <table>
+        <tr>
+            <th><a href="/shifts/Mon">Mon</a></th>
+            <th><a href="/shifts/Tue">Tue</a></th>
+            <th><a href="/shifts/Wed">Wed</a></th>
+            <th><a href="/shifts/Thu">Thu</a></th>
+            <th><a href="/shifts/Fri">Fri</a></th>
+            <th><a href="/shifts/Sat">Sat</a></th>
+            <th><a href="/shifts/Sun">Sun</a></th>   
+        </tr>
+        <tr>
+            <td>{% for shift in mon_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
                 <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
             {% endfor %}
-        </li>
-    </ul>
-{% endblock %}
+            </td>
+            <td>{% for shift in tue_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+            <td>{% for shift in wed_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+            <td>{% for shift in thu_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+            <td>{% for shift in fri_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+            <td>{% for shift in sat_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+            <td>{% for shift in sun_shifts %}
+                <h3>{{shift.staff_member.name}}, {{shift.times}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+                <p>———————————————————————————</p>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+        </tr>
+    </table>
+{% endblock %}}

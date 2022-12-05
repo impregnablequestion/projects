@@ -3,11 +3,12 @@
     <h2>{{staff_member.name}}'s shifts this week: </h2>
     <ul>
         {% for shift in shifts %}
+            <li><a href="shifts/shift/{{shift.id}}"></a></li>
             <li>———————————————————</li>
+            <li>day: {{shift.day}}</li>
             <li>type: {{shift.type}}</li>
             <li>times: {{shift.times}}</li>
             <li>hours: {{shift.hours}}</li>
-            <li>day: {{shift.day}}</li>
         {% endfor %}
     </ul>
 {% endblock %}
