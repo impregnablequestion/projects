@@ -27,8 +27,8 @@ wed_open = Shift("open", "10-6", 8, "Wed", sophie)
 
 shifts_repo.save(thu_close)
 shifts_repo.save(thu_open)
-found = shifts_repo.save(wed_open)
+shifts_repo.save(wed_open)
 
-
+found = shifts_repo.shifts_by_staff_member(sophie.id)
 
 pdb.set_trace()

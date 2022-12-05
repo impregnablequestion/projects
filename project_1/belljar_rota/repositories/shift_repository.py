@@ -52,3 +52,29 @@ def select_all():
         shift = Shift(row['type'], row['times'], row['hours'], row['day'], staff_member, row['id'])
         shifts.append(shift)
     return shifts
+
+def shifts_by_staff_member(id):
+    shifts = []
+    staff_member = staff_repo.select(id)
+
+    sql = "SELECT * FROM shifts WHERE staff_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    
+    for row in results:       
+        shift = Shift(row['type'], row['times'], row['hours'], row['day'], staff_member, row['id'])
+        shifts.append(shift)
+    return shifts
+
+def shifts_by_day(day):
+    shifts = []
+    
+    sql = "SELECT * FROM shifts WHERE day = %s"
+    values = [day]
+    results = run_sql(sql, values)
+
+    for row in results:
+        staff_member = staff_repo.select(row['id'])
+        shift = Shift(row['type'], row['times'], row['hours'], row['day'], staff_member, row['id'])
+        shifts.append(shift)
+    return shifts
