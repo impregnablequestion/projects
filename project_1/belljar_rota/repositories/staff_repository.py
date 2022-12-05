@@ -9,12 +9,11 @@ def save(staff_member):
     return staff_member
 
 def update(staff_member):
-    sql = "UPDATE staff SET ( name ) = ( %s ) WHERE id = %s RETURNING *"
+    sql = "UPDATE staff SET name = %s WHERE id = %s RETURNING *"
     values = [staff_member.name, staff_member.id]
-    results = run_sql(sql, values)
-    result = results[0]
-    staff_member = Staffmember(result['name'], result['id'])
+    run_sql(sql, values)
     return staff_member
+
 
 def select(id):
     staff_member = None

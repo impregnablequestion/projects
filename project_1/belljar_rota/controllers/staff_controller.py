@@ -31,7 +31,7 @@ def delete_staff_member(id):
     staff_repo.delete(id)
     return redirect('/staff')
 
-    # add an "are you sure" intermediate page to make it less easy to just delete members of staff
+# add an "are you sure" intermediate page to make it less easy to just delete members of staff
 
 @staff_blueprint.route("/staff/<id>/edit")
 def show_edit_screen(id):
@@ -41,7 +41,6 @@ def show_edit_screen(id):
 @staff_blueprint.route("/staff/edit/<id>", methods=["POST"])
 def edit_staff_member(id):
     result=request.form
-    staff_member = staff_repo.select(id)
-    staff_member.name = result['name']
-    staff_repo.update(staff_member)
+    updated_sm = Staffmember(result['name'], id)
+    staff_repo.update(updated_sm)
     return redirect('/staff')

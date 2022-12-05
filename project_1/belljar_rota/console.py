@@ -19,6 +19,8 @@ staff_repo.save(lewis)
 staff_repo.save(sophie)
 staff_repo.save(hebe)
 
+found = staff_repo.select(dave.id)
+
 thu_close = Shift("close", "5-cl", 7.5, "Thu", dave)
 thu_open = Shift("open", "10-6", 8.0, "Thu", sophie)
 
