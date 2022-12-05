@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect
 import repositories.staff_repository as staff_repo
+import repositories.shift_repository as shift_repo
 from models.staff_member import Staffmember
 
 staff_blueprint = Blueprint("staff", __name__)
@@ -44,3 +45,11 @@ def edit_staff_member(id):
     updated_sm = Staffmember(result['name'], id)
     staff_repo.update(updated_sm)
     return redirect('/staff')
+
+@staff_blueprint.route("/staff/<id>/shifts")
+def show_shifts_by_staff(id):
+    staff_member = staff_repo.select(id)
+    shifts = shift_repo.shifts_by_staff_member(id)
+    return render_template(
+        "staff/shifts_by_staff.html", staff_member = staff_member, shifts = shifts
+        )

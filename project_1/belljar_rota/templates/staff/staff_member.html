@@ -12,5 +12,10 @@
         <form id="delete" action="/staff/{{staff_member.id}}/delete" method="post">
             <input type="submit" value="delete">
         </form>
+        <form id="shifts" action="/staff/{{staff_member.id}}/shifts" method="get">
+            <input type="submit" value="show shifts">
+        </form>
+        
+        
     </ul>
 {% endblock %}
