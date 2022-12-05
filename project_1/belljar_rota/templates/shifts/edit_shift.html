@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h3>{{shift.day}} {{shift.type}}: {{shift.staff_member.name}}</h3>
     <ul>
-        <li>
-            {% for shift in shifts %}
-                <h3>{{shift.day}} {{shift.type}}, {{shift.times}}: {{shift.staff_member.name}}</h3>
-                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
-            {% endfor %}
-        </li>
+        <li>type: {{shift.type}}</li>
+        <li>times: {{shift.times}}</li>
+        <li>hours: {{shift.hours}}</li>
+        <li>day: {{shift.day}}</li>
+        <li>staff: {{shift.staff_member.name}}</li>
     </ul>
-    <form id="create_shift" action="/shifts/create/post" method="post">
+    <form id="edit_shift" action="/shifts/shift/{{shift.id}}/edit" method="post">
         <input type="text" placeholder="type" name="type" id="type">
         <input type="text" placeholder="times" name="times" id="times">
         <input type="text" placeholder="hours" name="hours" id="hours">
@@ -19,6 +19,6 @@
                 <option value="{{staff_member.id}}">{{staff_member.name}}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="create shift">
+        <input type="submit" value="confirm shift">
     </form>
 {% endblock %}

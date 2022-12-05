@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        <li>
+            {% for shift in shifts %}
+                <h3>{{shift.day}} {{shift.type}}, {{shift.times}}: {{shift.staff_member.name}}</h3>
+                <a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">view and edit details</a>
+            {% endfor %}
+        </li>
+    </ul>
+{% endblock %}

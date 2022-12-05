@@ -23,9 +23,11 @@ found = staff_repo.select(dave.id)
 
 thu_close = Shift("close", "5-cl", 7.5, "Thu", dave)
 thu_open = Shift("open", "10-6", 8.0, "Thu", sophie)
+wed_open = Shift("open", "10-6", 8, "Wed", sophie)
 
 shifts_repo.save(thu_close)
 shifts_repo.save(thu_open)
+found = shifts_repo.save(wed_open)
 
 
 

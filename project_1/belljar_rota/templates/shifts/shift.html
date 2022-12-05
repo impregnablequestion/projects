@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <article>
+        <li>type: {{shift.type}}</li>
+        <li>times: {{shift.times}}</li>
+        <li>hours: {{shift.hours}}</li>
+        <li>day: {{shift.day}}</li>
+        <li>staff: {{shift.staff_member.name}}</li>
+        <li>
+            <form id="edit_shift" action="/shifts/{{shift.id}}/edit" method="get">
+                <input type = "submit" value="edit shift">
+            </form>
+        </li>
+        <li>
+            <form id="delete_shift" action="/shifts/shift/{{shift.id}}/delete" method="post">
+                <input type = "submit" value="delete shift">
+            </form>
+        </li>
+    </article>
+{% endblock %}

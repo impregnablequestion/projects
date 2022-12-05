@@ -10,7 +10,7 @@ CREATE TABLE shifts(
     id SERIAL PRIMARY KEY,
     type VARCHAR(255),
     times VARCHAR(255),
-    hours INT NOT NULL,
+    hours REAL,
     day VARCHAR(255),
     staff_id INT NOT NULL REFERENCES staff(id)
 );
