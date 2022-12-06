@@ -86,6 +86,10 @@ nav > ul {
     font-size: smaller;
 }
 
+.staff_container {
+    display: flex;
+    justify-content: center;
+}
 
     
 

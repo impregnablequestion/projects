@@ -593,4 +593,17 @@
             <td>note</td>
         </tr>
     </table>
+    <div class="staff_container">
+        {% for staff_member in staff %}
+            {% if staff_member.name == "None" %}
+                
+            {% else %}
+                <ul>
+                    <li>name: {{staff_member.name}}</li>
+                    <li>max-min: {{staff_member.min_hours}}—{{staff_member.max_hours}}</li>
+                </ul>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
 {% endblock %}
