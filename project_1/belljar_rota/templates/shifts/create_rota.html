@@ -596,17 +596,15 @@
     <div class="staff_container">
         {% for staff_member in staff %}
             {% if staff_member.name != "None" %}
-                <ul>
+                <ul {% if staff_hours[staff_member.id] >= staff_member.min_hours and staff_hours[staff_member.id] <= staff_member.max_hours %}
+                    id="green"
+                {% else %}
+                    id="red"
+                {% endif %}>
                     <li>name: {{staff_member.name}}</li>
                     <li>id: {{staff_member.id}}</li>
                     <li>max-min: {{staff_member.min_hours}}—{{staff_member.max_hours}}</li>
                     <li>current hours: {{staff_hours[staff_member.id]}}</li>
-                    <li>{% if staff_hours[staff_member.id] >= staff_member.min_hours and staff_hours[staff_member.id] <= staff_member.max_hours %}
-                        <i class="fa-regular fa-face-smile"></i>
-                        {% else %}
-                        <i class="fa-regular fa-face-frown-open"></i>
-                        {% endif %}
-                    </li>
                 </ul>
             {% endif %}   
         {% endfor %}
