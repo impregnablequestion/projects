@@ -8,12 +8,13 @@ import repositories.staff_repository as staff_repo
 shifts_repo.delete_all()
 staff_repo.delete_all()
 
-
+cover = Staffmember("None")
 dave = Staffmember("Dave")
 lewis = Staffmember("Lewis")
 sophie = Staffmember("Sophie")
 hebe = Staffmember("Hebe")
 
+staff_repo.save(cover)
 staff_repo.save(dave)
 staff_repo.save(lewis)
 staff_repo.save(sophie)

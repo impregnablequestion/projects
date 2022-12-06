@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, request
 import repositories.shift_repository as shift_repo
 import repositories.staff_repository as staff_repo
 from models.shift import Shift
+from models.staff_member import Staffmember
 
 shift_blueprint = Blueprint("shifts", __name__)
 
