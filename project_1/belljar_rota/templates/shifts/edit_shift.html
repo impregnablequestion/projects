@@ -2,7 +2,14 @@
 {% block content %}
     <h3>{{shift.day}} {{shift.type}}: {{shift.staff_member.name}}</h3>
     <form id="edit_shift" action="/shifts/shift/{{shift.id}}/edit" method="post">
-        <input type="text" name="type" id="type" value = {{shift.type}}>
+        <label for="type">type:</label>
+        <select name="type" id="type">
+            <option value="open" {% if shift.type == "open" %} selected {% endif %}>open</option>
+            <option value="cross" {% if shift.type == "cross" %} selected {% endif %}>cross</option>
+            <option value="close" {% if shift.type == "close" %} selected {% endif %}>close</option>
+            <option value="office" {% if shift.type == "office" %} selected {% endif %}>office</option>
+            <option value="quiz" {% if shift.type == "quiz" %} selected {% endif %}>quiz</option>
+        </select>
         <input type="text" placeholder="times" name="times" id="times" value="{{shift.times}}">
         <input type="text" placeholder="hours" name="hours" id="hours" value="{{shift.hours}}">
         <label for="day">day</label>
