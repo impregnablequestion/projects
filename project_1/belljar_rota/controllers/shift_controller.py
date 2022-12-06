@@ -7,7 +7,7 @@ import pdb
 shift_blueprint = Blueprint("shifts", __name__)
 
 @shift_blueprint.route('/shifts/')
-def show_rota_table_test():
+def show_rota_table():
     mon_shifts = shift_repo.shifts_by_day("Mon")
     tue_shifts = shift_repo.shifts_by_day("Tue")
     wed_shifts = shift_repo.shifts_by_day("Wed")
@@ -27,35 +27,6 @@ def show_rota_table_test():
         sat_shifts=sat_shifts,
         sun_shifts=sun_shifts,
         )
-
-@shift_blueprint.route('/shifts/shift/<id>')
-def show_shift(id):
-    shift = shift_repo.select(id)
-    return render_template("shifts/shift.html", shift=shift)
-
-@shift_blueprint.route('/shifts//<id>/edit')
-def show_edit_shift(id):
-    shift = shift_repo.select(id)
-    staff = staff_repo.select_all()
-    return render_template("shifts/edit_shift.html", shift=shift, staff=staff)
-
-@shift_blueprint.route('/shifts/shift/<id>/edit', methods=["POST"])
-def edit_shift(id):
-    result = request.form
-    type = result['type']
-    times = result['times']
-    hours = float(result['hours'])
-    day = result['day']
-    staff_id = result['staff_id']
-    staff_member = staff_repo.select(staff_id)
-    updated_shift = Shift(type, times, hours, day, staff_member, id)
-    shift_repo.update(updated_shift)
-    return redirect('/shifts/')
-
-@shift_blueprint.route('/shifts/shift/<id>/delete', methods=["POST"])
-def delete_shift(id):
-    shift_repo.delete(id)
-    return redirect('/shifts/')
 
 @shift_blueprint.route("/shifts/create")
 def show_create_shift():
@@ -89,6 +60,35 @@ def show_create_shift():
     staff = staff,
     staff_hours = staff_hours
     )
+
+@shift_blueprint.route('/shifts/shift/<id>')
+def show_shift(id):
+    shift = shift_repo.select(id)
+    return render_template("shifts/shift.html", shift=shift)
+
+@shift_blueprint.route('/shifts//<id>/edit')
+def show_edit_shift(id):
+    shift = shift_repo.select(id)
+    staff = staff_repo.select_all()
+    return render_template("shifts/edit_shift.html", shift=shift, staff=staff)
+
+@shift_blueprint.route('/shifts/shift/<id>/edit', methods=["POST"])
+def edit_shift(id):
+    result = request.form
+    type = result['type']
+    times = result['times']
+    hours = float(result['hours'])
+    day = result['day']
+    staff_id = result['staff_id']
+    staff_member = staff_repo.select(staff_id)
+    updated_shift = Shift(type, times, hours, day, staff_member, id)
+    shift_repo.update(updated_shift)
+    return redirect('/shifts/')
+
+@shift_blueprint.route('/shifts/shift/<id>/delete', methods=["POST"])
+def delete_shift(id):
+    shift_repo.delete(id)
+    return redirect('/shifts/')
 
 @shift_blueprint.route("/shifts/create/post", methods = ["POST"])
 def create_shift():

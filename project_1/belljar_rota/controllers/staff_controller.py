@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect
 import repositories.staff_repository as staff_repo
 import repositories.shift_repository as shift_repo
 from models.staff_member import Staffmember
+from models.shift import Shift
 
 staff_blueprint = Blueprint("staff", __name__)
 
@@ -31,6 +32,11 @@ def show_staff_member(id):
 
 @staff_blueprint.route('/staff/<id>/delete', methods=['POST'])
 def delete_staff_member(id):
+    shifts = shift_repo.shifts_by_staff_member(id)
+    none = staff_repo.select_by_name("None")
+    for shift in shifts:
+        shift.staff_member = none
+        shift_repo.update(shift)
     staff_repo.delete(id)
     return redirect('/staff')
 

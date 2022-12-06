@@ -25,6 +25,14 @@ def select(id):
     staff_member = Staffmember(result["name"], result["min_hours"], result["max_hours"], result['happy'], result["id"])
     return staff_member
 
+def select_by_name(name):
+    sql = "SELECT * FROM staff WHERE name = %s"
+    values = [name]
+    results = run_sql(sql, values)
+    result = results[0]
+    staff_member = Staffmember(result["name"], result["min_hours"], result["max_hours"], result['happy'], result["id"])
+    return staff_member
+
 def select_all():
     staff = []
 
