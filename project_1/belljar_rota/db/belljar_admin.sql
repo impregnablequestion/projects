@@ -3,7 +3,9 @@ DROP TABLE staff;
 
 CREATE TABLE staff(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    min_hours REAL,
+    max_hours REAL
 );
 
 CREATE TABLE shifts(
