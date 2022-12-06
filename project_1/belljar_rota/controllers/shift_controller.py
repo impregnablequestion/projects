@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, request
 import repositories.shift_repository as shift_repo
 import repositories.staff_repository as staff_repo
 from models.shift import Shift
-from models.staff_member import Staffmember
+import pdb
 
 shift_blueprint = Blueprint("shifts", __name__)
 
@@ -16,6 +16,7 @@ def show_rota_table_test():
     sat_shifts = shift_repo.shifts_by_day("Sat")
     sun_shifts = shift_repo.shifts_by_day("Sun")
 
+
     return render_template(
         "shifts/rota.html",
         mon_shifts=mon_shifts,
@@ -24,7 +25,7 @@ def show_rota_table_test():
         thu_shifts=thu_shifts,
         fri_shifts=fri_shifts,
         sat_shifts=sat_shifts,
-        sun_shifts=sun_shifts
+        sun_shifts=sun_shifts,
         )
 
 @shift_blueprint.route('/shifts/shift/<id>')
@@ -66,6 +67,17 @@ def show_create_shift():
     sat_shifts = shift_repo.shifts_by_day("Sat")
     sun_shifts = shift_repo.shifts_by_day("Sun")
     staff = staff_repo.select_all()
+    staff_hours = {}
+    for member in staff:
+        all_hours = 0
+        member_shifts = shift_repo.shifts_by_staff_member(member.id)
+        for shift in member_shifts:
+            all_hours += shift.hours
+        staff_hours[member.id] = all_hours
+        
+  
+
+
     return render_template("shifts/create_rota.html",
     mon_shifts=mon_shifts,
     tue_shifts=tue_shifts,
@@ -74,7 +86,9 @@ def show_create_shift():
     fri_shifts=fri_shifts,
     sat_shifts=sat_shifts,
     sun_shifts=sun_shifts,
-    staff = staff)
+    staff = staff,
+    staff_hours = staff_hours
+    )
 
 @shift_blueprint.route("/shifts/create/post", methods = ["POST"])
 def create_shift():

@@ -43,8 +43,9 @@ def show_edit_screen(id):
 
 @staff_blueprint.route("/staff/edit/<id>", methods=["POST"])
 def edit_staff_member(id):
+    staff_member = staff_repo.select(id)
     result=request.form
-    updated_sm = Staffmember(result['name'], result['min_hours'], result['max_hours'], id)
+    updated_sm = Staffmember(result['name'], result['min_hours'], result['max_hours'], staff_member.happy, id)
     staff_repo.update(updated_sm)
     return redirect('/staff')
 
