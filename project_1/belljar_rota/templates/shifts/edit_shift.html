@@ -1,33 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3>{{shift.day}} {{shift.type}}: {{shift.staff_member.name}}</h3>
-    <ul>
-        <li>type: {{shift.type}}</li>
-        <li>times: {{shift.times}}</li>
-        <li>hours: {{shift.hours}}</li>
-        <li>day: {{shift.day}}</li>
-        <li>staff: {{shift.staff_member.name}}</li>
-    </ul>
     <form id="edit_shift" action="/shifts/shift/{{shift.id}}/edit" method="post">
-        <input type="text" placeholder="type" name="type" id="type">
-        <input type="text" placeholder="times" name="times" id="times">
-        <input type="text" placeholder="hours" name="hours" id="hours">
+        <input type="text" name="type" id="type" value = {{shift.type}}>
+        <input type="text" placeholder="times" name="times" id="times" value="{{shift.times}}">
+        <input type="text" placeholder="hours" name="hours" id="hours" value="{{shift.hours}}">
         <label for="day">day</label>
         <select name="day" id="day">
-            <option value="Mon">Monday</option>
-            <option value="Tue">Tuesday</option>
-            <option value="Wed">Wednesday</option>
-            <option value="Thu">Thursday</option>
-            <option value="Fri">Friday</option>
-            <option value="Sat">Saturday</option>
-            <option value="Sun">Sunday</option>
+            <option value="Mon" 
+            {% if shift.day == "Mon" %}
+                selected
+            {% endif %}>Monday</option>
+            <option value="Tue" {% if shift.day == "Tue" %}
+                selected
+            {% endif %}>Tuesday</option>
+            <option value="Wed" {% if shift.day == "Wed" %}
+                selected
+            {% endif %}>Wednesday</option>
+            <option value="Thu" {% if shift.day == "Thu" %}
+                selected               
+            {% endif %}>Thursday</option>
+            <option value="Fri" {% if shift.day == "Fri" %}
+                selected
+            {% endif %}>Friday</option>
+            <option value="Sat" {% if shift.day == "Sat" %}
+                selected                
+            {% endif %}>Saturday</option>
+            <option value="Sun" {% if shift.day == "Sun" %}
+                selected
+            {% endif %}>Sunday</option>
         </select>
         <label for="staff">staff member</label>
         <select name="staff_id" id="staff">
             {% for staff_member in staff %}
-                <option value="{{staff_member.id}}">{{staff_member.name}}</option>
+                <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                    selected
+                {% endif %}>{{staff_member.name}}</option>
             {% endfor %}
         </select>
         <input type="submit" value="confirm edit">
+    </form>
+    <form id="backtocreate" action="/shifts/create">
+        <input type="submit" value="back">
     </form>
 {% endblock %}

@@ -3,7 +3,7 @@
     <h2>
         current staff
     </h2>
-    <ul>
+    <ul id="staff-list">
         {% for staff_member in staff %}
             <li><a href="/staff/{{staff_member.id}}">{{staff_member.name}}</a></li>
         {% endfor %}

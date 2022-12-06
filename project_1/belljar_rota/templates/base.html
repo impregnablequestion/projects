@@ -11,25 +11,28 @@
     <title>bell jar rota</title>
 </head>
 <body>
-    <header>
-        <h1><a href="/">bell jar rota</a></h1>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/">bell jar rota</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/staff/">view team</a></li>
+                    <li><a href="/shifts/">view rota</a></li>
+                    <li><a href="/shifts/create">create rota</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            {% block content %}
+                
+            {% endblock %}
+        </main>
+        <div class="push"></div>
+    </div>
+    <footer class="footer">
         <nav>
-            <ul>
-                <li><a href="/staff/">view team</a></li>
-                <li><a href="/shifts/">view rota</a></li>
-                <li><a href="/shifts/create">create rota</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        {% block content %}
-            
-        {% endblock %}
-    </main>
-    <footer>
-        <nav>
-            <ul>
+            <ul class="footer-nav">
                 <li><a href="/">home</a></li>
                 <li><a href="/shifts/">view rota</a></li>
                 <li><a href="/staff/">view staff</a></li>
