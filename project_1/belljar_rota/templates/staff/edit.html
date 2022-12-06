@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>edit {{staff_member.name}}</h2>
+    
     <form id="edit-staff-member" action="/staff/edit/{{staff_member.id}}" method="post">
         <input type="text" placeholder="name" name="name" id="name">
-        <input type="submit" value="confirm">
+        <label for="min_hours">minimum hours:</label> 
+        <input type="number" id="min_hours" name="min_hours" min="0" max="35">
+        <label for="max_hours">maximum hours:</label> 
+        <input type="number" id="mmax_hours" name="max_hours" min="0" max="55">
+        <input type="submit" value="submit">
     </form>
     <form id="back-staff-member" action="/staff/{{staff_member.id}}" method="get">
         <input type="submit" value="back">

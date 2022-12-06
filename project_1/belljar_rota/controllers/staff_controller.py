@@ -18,7 +18,9 @@ def show_create_staff():
 def create_staff_member():
     result = request.form
     name = result['name']
-    new_staff = Staffmember(name)
+    min_hours = result['min_hours']
+    max_hours = result['max_hours']
+    new_staff = Staffmember(name, min_hours, max_hours)
     staff_repo.save(new_staff)
     return redirect('/staff')
 
@@ -42,7 +44,7 @@ def show_edit_screen(id):
 @staff_blueprint.route("/staff/edit/<id>", methods=["POST"])
 def edit_staff_member(id):
     result=request.form
-    updated_sm = Staffmember(result['name'], id)
+    updated_sm = Staffmember(result['name'], result['min_hours'], result['max_hours'], id)
     staff_repo.update(updated_sm)
     return redirect('/staff')
 

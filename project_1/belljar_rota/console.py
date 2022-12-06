@@ -8,11 +8,11 @@ import repositories.staff_repository as staff_repo
 shifts_repo.delete_all()
 staff_repo.delete_all()
 
-cover = Staffmember("None")
-dave = Staffmember("Dave")
-lewis = Staffmember("Lewis")
-sophie = Staffmember("Sophie")
-hebe = Staffmember("Hebe")
+cover = Staffmember("None", 0, 40)
+dave = Staffmember("Dave", 30, 40)
+lewis = Staffmember("Lewis", 35, 45)
+sophie = Staffmember("Sophie", 35, 45)
+hebe = Staffmember("Hebe", 15, 30)
 
 staff_repo.save(cover)
 staff_repo.save(dave)
@@ -33,6 +33,6 @@ shifts_repo.save(wed_open)
 # found = shifts_repo.shifts_by_staff_member(sophie.id)
 # found.sort(key=lambda p: p.day)
 
-found = shifts_repo.shifts_by_day("Thu")
+# found = shifts_repo.shifts_by_day("Thu")
 
 pdb.set_trace()

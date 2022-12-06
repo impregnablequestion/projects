@@ -3,6 +3,10 @@
     <h2>create staff member</h2>
     <form id="create_staff_member" action="/staff/" method="post">
         <input type="text" placeholder="name" name="name" id="name">
+        <label for="min_hours">minimum hours:</label> 
+        <input type="number" id="min_hours" name="min_hours" min="0" max="35">
+        <label for="max_hours">maximum hours:</label> 
+        <input type="number" id="mmax_hours" name="max_hours" min="0" max="55">
         <input type="submit" value="submit">
     </form>
 {% endblock %}

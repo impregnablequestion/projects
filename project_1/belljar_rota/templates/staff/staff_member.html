@@ -5,6 +5,8 @@
     </h2>
     <ul>
         <li>name: {{ staff_member.name }}</li>
+        <li>minimum hours: {{ staff_member.min_hours }}</li>
+        <li>maximum hours: {{ staff_member.max_hours }}</li>
         <li>
             <div id="staff_edit_buttons_container">
                 <form id="edit" action="/staff/{{staff_member.id}}/edit" method="get">
