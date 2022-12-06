@@ -5,7 +5,7 @@ from models.staff_member import Staffmember
 class TestShift(unittest.TestCase):
 
     def setUp(self):
-        self.dave = Staffmember("Dave", 3)
+        self.dave = Staffmember("Dave", 10, 40, False, 3)
         self.thu_close = Shift("close", "5-12.30", 7.5, "Thu", self.dave, 4)
         
     def test_shift_has_type(self):

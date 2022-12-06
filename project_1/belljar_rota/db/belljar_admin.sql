@@ -5,7 +5,8 @@ CREATE TABLE staff(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     min_hours REAL,
-    max_hours REAL
+    max_hours REAL,
+    happy BOOLEAN
 );
 
 CREATE TABLE shifts(
