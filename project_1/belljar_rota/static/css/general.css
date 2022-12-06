@@ -27,10 +27,6 @@ header {
     padding: 3rem
 }
 
-footer {
-
-}
-
 article {
     text-align: left;
     padding: 2rem;
@@ -80,6 +76,7 @@ nav > ul {
 .footer-nav {
     display: flex;
     justify-content: center;
+    gap: 3rem;
 }
 
 .footer-nav > li > a {
