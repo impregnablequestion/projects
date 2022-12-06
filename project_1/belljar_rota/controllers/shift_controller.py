@@ -93,3 +93,12 @@ def create_shift():
 def shifts_by_day(day):
     shifts = shift_repo.shifts_by_day(day)
     return render_template("shifts/shifts_by_day.html", shifts = shifts, day=day)
+
+@shift_blueprint.route("/shifts/<shiftid>/editstaff", methods = ["POST"])
+def edit_staff_member(shiftid):
+    shift = shift_repo.select(shiftid)
+    result = request.form
+    staff_id = result["staff_id"]
+    shift.staff_member.id = staff_id
+    shift_repo.update(shift)
+    return redirect("/shifts/create")
