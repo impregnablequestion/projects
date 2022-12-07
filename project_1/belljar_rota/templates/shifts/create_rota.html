@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <form id="create_shift" action="/shifts/create/post" method="post">
-        <h2 id="form-label">create new shifts:</h2>
+        <h3 id="form-label">create new shifts:</h3>
         <label for="type">type:</label>
         <select name="type" id="type">
             <option value="open">open</option>
@@ -582,7 +582,7 @@
                 </ul>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><h3>notes:</h3></td>
             <td>note</td>
             <td>note</td>
@@ -591,7 +591,7 @@
             <td>note</td>
             <td>note</td>
             <td>note</td>
-        </tr>
+        </tr> -->
     </table>
     <div class="staff_container">
         {% for staff_member in staff %}

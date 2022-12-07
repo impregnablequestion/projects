@@ -24,7 +24,7 @@ body {
 
 header {
     background-color: rgb(27, 47, 47);
-    padding: 3rem
+    padding: 1rem
 }
 
 article {
@@ -34,19 +34,19 @@ article {
     font-size: 24px;
 }
 
-aside {
+/* aside {
     float: right;
     text-align: left;
     padding: 1rem;
     border: 10px;
     box-shadow: inset 2px 2px 0px 2px black;
     margin: 3rem
-}
+} */
 
 h1 {
-    padding: 1rem;
+    padding: 0.5rem;
     font-weight: bolder;
-    font-size: 4rem
+    font-size: 3.2rem
 }
 
 li {

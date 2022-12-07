@@ -14,8 +14,37 @@
     border: 1rem rgb(27, 47, 47);
 }
 
+#create_shift > select {
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+#create_shift > input {
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
 #staff_edit_buttons_container {
     display: flex;
     justify-content: center;
     margin: 1rem;
+}
+
+#edit_staff_shift > select {
+    padding: 0.7rem;
+    border-radius: 10px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    font-size: 0.8rem;
+
+}
+
+#edit_staff_shift > input{
+    padding: 0.1rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: green;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif
 }

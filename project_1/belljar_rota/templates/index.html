@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <article>
-        <aside>
+        <!-- <aside>
             <h2>
                 noticeboard
             </h2>
@@ -9,25 +9,30 @@
                 <li>notice goes here</li>
                 <li>notice goes here</li>
             </ul>
-        </aside>
+        </aside> -->
+        <h2>Instructions:</h2>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-            magna aliqua. Sodales neque sodales ut etiam. Faucibus scelerisque eleifend donec pretium vulputate. Ac tortor 
-            dignissim convallis aenean et. In nulla posuere sollicitudin aliquam ultrices sagittis orci a. Sagittis nisl 
-            rhoncus mattis rhoncus. Enim tortor at auctor urna nunc id. Id ornare arcu odio ut sem nulla pharetra diam. 
-            Odio pellentesque diam volutpat commodo sed egestas egestas. Placerat in egestas erat imperdiet. Risus at 
-            ultrices mi tempus. Ac turpis egestas integer eget aliquet nibh. Eget nulla facilisi etiam dignissim diam quis 
-            enim lobortis. Suspendisse interdum consectetur libero id faucibus. Sit amet mauris commodo quis imperdiet massa 
-            tincidunt nunc pulvinar. Ornare suspendisse sed nisi lacus sed. Diam volutpat commodo sed egestas egestas fringilla 
-            phasellus faucibus. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Vulputate dignissim 
-            suspendisse in est ante in. Sollicitudin tempor id eu nisl nunc mi ipsum.
+            This is an app for making and viewing the rota for the Bell Jar. The manager can use the <b><a href="/staff/">view team</a></b> window to 
+            add, edit and remove members of staff. Each member of staff has a minimum and maximum hours set when they are created 
+            that can be edited after the fact. When you remove a member of staff their shifts will remain in the create page, but be assigned to "None". Staff can 
+            view the rota from the <b><a href="/shifts/">view rota</a></b> page.
         </p>
         <p>
-            Sit amet risus nullam eget felis eget nunc lobortis mattis. Neque ornare aenean euismod elementum. Duis ut diam quam 
-            nulla. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Pharetra et ultrices neque ornare aenean 
-            euismod elementum. Fringilla phasellus faucibus scelerisque eleifend. Quam quisque id diam vel quam. Tempus quam 
-            pellentesque nec nam aliquam sem et. Id volutpat lacus laoreet non. Scelerisque eleifend donec pretium vulputate. 
-            Lacus viverra vitae congue eu consequat ac.
+            You can create a rota from within the <b><a href="/shifts/create">create rota</a></b> panel, where the app is autoloaded
+            with a standard pattern of shifts from which you can add or remove, or delete. Directly from that panel, you can add a staff member 
+            to a shift by navigating to the desired staff member from the dropdown menu and then clicking okay. The page will reload with that staff
+            member assigned to the shift (<b>PLEASE NOTE:</b> You must click okay to confirm the selection of each staff member, multiple staff cannot
+             be added to the rota at the same time. This is mainly because this website doesn't use JavaScript). 
+        </p>
+        <p>     
+            The top "create shift" panel sends a form
+            that creates a new shift with a member of staff, a type ("open", "office" "cross", "close", "quiz"), a set of times and the amount of hours. 
+            Please take care to fill in the amount of hours accurately when creating or editing a shift as it will effect the calculations used in determining 
+            whether staff have the right amount of hours.
+        </p>
+        <p>
+            A cool feature of the create rota window is that the members of staff are displayed below the rota, with their desired hours and their current hours below them. They will be 
+            coloured red if their hours are outside of their max-min range and coloured green once they are happy with the rota!
         </p>
     </article>
 {% endblock %}}
